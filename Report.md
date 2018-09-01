@@ -2,9 +2,9 @@
 
 ## Learning Algorithm
 
-The learning algorithm consists of a five-layer deep Q network (DQN).  All the layers are fully connected.
-The first and second layer have 128 units, the third has 32, the fourth has 16 and the fifth has 4, which 
-is the number of actions. These values were chosen by hand tuning.  The ReLU activation function is used
+The learning algorithm consists of a four-layer deep Q network (DQN).  All the layers are fully connected.
+The first and second layer have 128 units, the third has 32, the fourth has 16 and outputs 4 values, corresponding 
+to the number of actions. These values were chosen by hand tuning.  The ReLU activation function is used
 for each layer except the last, which is linear.
 
 The algorithm works by creating two DQNs, a local and a target network.  At each state, the agent's act
