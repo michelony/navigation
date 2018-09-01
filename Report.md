@@ -19,6 +19,23 @@ of the loss function is chosen by using a target network to select the action an
 Q-values are used to generate Q-targets by using the reward and the discounted estimated future reward.  The MSE loss
 is then generated between the Q-values of the local network and the Q-targets of the target network.
 
+The hyperparameters are:
+* Epsilon start: Epsilon controls the amount we explore vs exploit for our epsilon-greedy algorithm.  We decay epsilon over
+time and this parameter says where we start with epsilon.
+* Epsilon end: The minimum value that epsilon can be.
+* Epsilon decay: A mulitplicative factor for decreasing epsilon.
+* Max time steps: Each time we reset the environment, this is the most time steps we can run for.  The episode can
+terminate early if the done variable gets set by the environment.
+* Buffer size: The maximum size of the buffer for experience replay.  It's defaulted to 1e5.  I haven't experimented
+with changing this.
+* Batch size: When the experiences are sampled from the buffer in experience replay, this controls the mini-batch size.
+I lowered this from 64 to 32 and noticed a small benefit.
+* Gamma: This is the discount factor and set to 0.99.  This affects the weight of future rewards.
+* Tau: When the soft update is ran to update the weights of the local network, this hyperparameter affects how much
+we update.
+* LR: The learning rate for our Adam optimizer.
+* Update every: Controls how many time steps we need to go before learning occurs.
+
 ## Plot of Rewards
 ![Plot of Rewards](plot.png)
 
