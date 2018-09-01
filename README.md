@@ -9,6 +9,9 @@ The state space has 37 dimensions and contains the agent's velocity along with p
 agent's forward direction.  There are four actions an agent can choose at each time step: walk forward, walk backward,
 turn left and turn right.
 
+In order to be considered successful at navigating this world, the agent must obtain an average reward of 13 over the past 100
+time steps.
+
 ## Getting Started
 
 In order to run the code, you'll need to download and install [PyTorch](https://pytorch.org/) and [Unity ML-Agents](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Installation.md), as well as [Banana.app](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip).  The Banana.app link is for Mac OS.
