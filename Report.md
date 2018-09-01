@@ -7,11 +7,12 @@ The first and second layer have 128 units, the third has 32, the fourth has 16 a
 is the number of actions. These values were chosen by hand tuning.  The ReLU activation function is used
 for each layer except the last, which is linear.
 
-The algorithm works by creating two DQNs, a local and a target network.  At each state, the agent's act()
-method is called with the state and an action is returned.  The action is sent to the environment and a new
-environment state and reward is returned.  This new state and reward are passed into the agent via the step()
-method.  This step method adds the experience to a fixed-size memory buffer and, at regular intervals, 
-samples and updates weights based on these experiences by calling the learn method.
+The algorithm works by creating two DQNs, a local and a target network.  At each state, the agent's act
+method is called with the state and an action is returned.  The action is chosen according to an epsilon-greedy
+policy. The action is sent to the environment and a new environment state and reward is returned.  This new
+state and reward are passed into the agent via the step method.  This step method adds the experience to a
+fixed-size memory buffer and, at regular intervals, samples and updates weights based on these experiences by
+calling the learn method.
 
 The learn method updates the weights of the local network in the direction to minimize a loss function.  The error
 of the loss function is chosen by using a target network to select the action and Q-values for the next state.  These
